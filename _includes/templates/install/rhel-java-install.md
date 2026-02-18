@@ -1,4 +1,4 @@
-ThingsBoard service is running on Java 25. Follow this instructions to install OpenJDK 25:
+ThingsBoard service is running on Java 25. Follow these instructions to install OpenJDK 25:
 
 {% capture rhel8_note %}
 **Note:** `java-25-openjdk` requires RHEL 9 or later. RHEL 8 users should upgrade to RHEL 9 before proceeding.

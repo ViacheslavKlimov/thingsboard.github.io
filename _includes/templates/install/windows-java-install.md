@@ -1,4 +1,4 @@
-ThingsBoard service is running on Java 25. Follow this instructions to install OpenJDK 25.
+ThingsBoard service is running on Java 25. Follow these instructions to install OpenJDK 25.
 
  * Visit [Open JDK Download Page](https://adoptium.net). Go to "Other platforms and versions", select "Operating System" as "Windows", "Architecture" as "x64", "Version" as "25 - LTS" and download **JDK .msi** package.
  * Run the downloaded MSI package and follow the instructions.
