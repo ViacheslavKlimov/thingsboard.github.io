@@ -19,7 +19,7 @@ This section contains installation instructions for build tools.
 
 ### Java
 
-ThingsBoard is built using Java 17. You can use [following instructions](/docs/user-guide/install/ubuntu/#step-1-install-java-17-openjdk) to install Java 17.
+ThingsBoard is built using Java 25. You can use [following instructions](/docs/user-guide/install/ubuntu/#step-1-install-java-25-openjdk) to install Java 25.
 
 ### Maven
 
