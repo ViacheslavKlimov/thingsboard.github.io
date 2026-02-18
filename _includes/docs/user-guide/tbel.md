@@ -2578,6 +2578,32 @@ As you can see, **key2** and **key4** was excluded from the output and **key_to_
 
 The *Tbel* library uses all standard JavaScript methods in the [JavaScript Date](https://www.w3schools.com/jsref/jsref_getdate.asp), such as **"toLocaleString"**,  **"toISOString"** and other methods;
 
+#### Date formatting changes in ThingsBoard 4.4+
+
+{% capture tbel_date_format_note %}
+**Important:** Starting with ThingsBoard 4.4, the platform runs on Java 25, which includes updated Unicode CLDR locale data. This may cause changes in locale-formatted date/time strings produced by `TbDate` methods.
+
+**Examples of changes:**
+
+| Format | Before (Java 17) | After (Java 25) |
+|--------|---------|----------|
+| Time with AM/PM (English) | `9:04:05 PM` | `9:04:05 PM` (narrow no-break space before AM/PM) |
+| Full datetime (English) | `Tuesday, September 5, 2023 at 9:04:05 PM` | `Tuesday, September 5, 2023, 9:04:05 PM` |
+| Full datetime (Ukrainian) | `середа, 6 вересня 2023 р. о 04:04:05` | `середа, 6 вересня 2023 р., 04:04:05` |
+| Short datetime (Arabic) | `5‏/9‏/2023, 9:04:05 م` | `5‏/9‏/2023، 9:04:05 م` (Arabic comma) |
+
+**Affected methods:** `toLocaleString()`, `toLocaleDateString()`, `toLocaleTimeString()`, `toString()`, `toDateString()`, `toTimeString()`, `toUTCString()`
+
+**Unaffected methods:** `toISOString()`, `toJSON()`, `getTime()`, `valueOf()`, and all numeric getters (`getFullYear()`, `getMonth()`, `getDate()`, `getHours()`, etc.)
+
+**Recommendations:**
+- Use `toISOString()` or `toJSON()` for stable date string comparisons and storage.
+- Use explicit patterns for consistent formatting: `new Date(ts).toLocaleString("en-US", '{"pattern": "M/d/yyyy, h:mm:ss a"}')`.
+- Use numeric getters (e.g., `getHours()`, `getMinutes()`) for comparisons instead of string matching.
+- Avoid string equality checks on locale-formatted dates.
+{% endcapture %}
+{% include templates/warn-banner.md content=tbel_date_format_note %}
+
 #### Input format data:
 - String with Optional: pattern, locale, time zone
 - ints (year, month and etc) with Optional: pattern, locale, time zone

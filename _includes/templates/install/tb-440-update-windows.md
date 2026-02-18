@@ -7,3 +7,4 @@ Please refer to [**Step 1 of the installation guide**](/docs/user-guide/install/
 
 {% endcapture %}
 {% include templates/warn-banner.md content=tb_4_4_0_upgrade_note %}
+{% include templates/install/tb-440-tbel-note.md %}

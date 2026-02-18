@@ -11,3 +11,4 @@ Please refer to Step 1 of the corresponding installation guide for detailed inst
 
 {% endcapture %}
 {% include templates/warn-banner.md content=tb_4_4_0_upgrade_note %}
+{% include templates/install/tb-440-tbel-note.md %}
